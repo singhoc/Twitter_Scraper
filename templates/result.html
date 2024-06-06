@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trending Topics Result</title>
+</head>
+<body>
+    <h1>Trending Topics Results</h1>
+    <p>Twitter Most Happening at {{ result['date_time'] }}:</p>
+    <ul>
+        <li>{{ result['trend1'] }}</li>
+        <li>{{ result['trend2'] }}</li>
+        <li>{{ result['trend3'] }}</li>
+        <li>{{ result['trend4'] }}</li>
+        <li>{{ result['trend5'] }}</li>
+    </ul>
+    <p>IP address used for this query: {{ result['ip_address'] }}.</p>
+    <h2>JSON </h2>
+    <pre>{{ result | tojson(indent=2) }}</pre>
+    <form action="{{ url_for('fetch_trends') }}" method="post">
+        <button type="submit">Click here to run the script</button>
+    </form>
+</body>
+</html>
